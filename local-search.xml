@@ -4,51 +4,25 @@
   
   
   <entry>
-    <title>Vue</title>
-    <link href="/2025/05/08/vue/"/>
-    <url>/2025/05/08/vue/</url>
+    <title>Hello World</title>
+    <link href="/2026/06/25/hello-world/"/>
+    <url>/2026/06/25/hello-world/</url>
     
-    <content type="html"><![CDATA[<p><img src="/images/image.png" alt="image.png"></p><h3 id="1-v-bind：单向绑定（父-➔-子-或-数据-➔-视图）"><a href="#1-v-bind：单向绑定（父-➔-子-或-数据-➔-视图）" class="headerlink" title="1. v-bind：单向绑定（父 ➔ 子 或 数据 ➔ 视图）"></a>1. <strong><code>v-bind</code>：单向绑定</strong>（父 ➔ 子 或 数据 ➔ 视图）</h3><ul><li>只负责<strong>把数据从 Vue 实例绑定到 DOM 或子组件</strong></li><li>它是<strong>单向的</strong>，不会自动把用户输入或子组件的变化同步回数据。</li></ul><p><code>v-model</code> 是 <strong>Vue.js</strong> 中的一个非常核心的指令，用来在 <strong>表单控件</strong> 和 <strong>组件</strong> 上实现 <strong>双向绑定</strong>。</p><p>简单理解：</p><ul><li><code>v-model</code> 负责把数据从 <strong>Vue 实例</strong> 更新到 <strong>视图</strong>（input、textarea、select 等）。</li><li>也负责把用户在视图上的输入自动同步回 <strong>Vue 数据</strong>。</li></ul><h3 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h3><p><code>axios</code> 是前端开发中<strong>最流行</strong>的 HTTP 客户端库之一，专门用来在浏览器（或 Node.js）中发送 <strong>HTTP 请求</strong>，比如调用后端接口、获取数据等</p><p><img src="/images/image201.png" alt="image.png"></p><p><img src="/images/image202.png" alt="image.png"></p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>    <span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,       <span class="hljs-comment">// 或 .$mount(&quot;#app&quot;)</span><br>    <span class="hljs-comment">// ...其他配置</span><br>&#125;);<br></code></pre></td></tr></table></figure><p>• <code>#app</code> 是一个 <strong>CSS 选择器</strong>，表示选择 <code>id=&quot;app&quot;</code> 的 DOM 元素。</p><p><img src="/images/image203.png" alt="image.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to Tristan’s Blog! 🎉</p><p>这是第一篇文章，博客已经支持在线编辑和发布。</p><span id="more"></span><p>访问 <code>/admin</code> 即可进入后台编辑界面。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>生活</category>
+      
+    </categories>
     
     
     <tags>
       
-      <tag>Vue</tag>
+      <tag>随笔</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Java八股</title>
-    <link href="/2025/05/07/java/"/>
-    <url>/2025/05/07/java/</url>
-    
-    <content type="html"><![CDATA[<h3 id="Java数组"><a href="#Java数组" class="headerlink" title="Java数组"></a>Java数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">这里nums表示数组<br>数组长度:nums.length()<br>数组排序：Arrays.sort(nums)<br><br></code></pre></td></tr></table></figure><h3 id="有序列表List"><a href="#有序列表List" class="headerlink" title="有序列表List"></a>有序列表List</h3><p><a href="https://liaoxuefeng.com/books/java/collection/list/index.html">list的使用说明</a></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>list.add(<span class="hljs-string">&quot;apple&quot;</span>); <span class="hljs-comment">// size=1</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> list.get(i);<br><br><span class="hljs-keyword">for</span> (Iterator&lt;String&gt; it = list.iterator(); it.hasNext(); ) &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> it.next();<br>    System.out.println(s);<br>&#125;<br><span class="hljs-keyword">for</span> (String s : list) &#123;<br>    System.out.println(s);<br>&#125;<br><br>Object[] array = list.toArray();<br><span class="hljs-comment">//类型转换更为安全</span><br>List&lt;String&gt; list = Arrays.asList(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;cherry&quot;</span>);<br>String[] array = list.toArray(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[<span class="hljs-number">0</span>]);<br><br>List&lt;Integer&gt; list = List.of(array);<br></code></pre></td></tr></table></figure><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Character.isDigit(s.charAt(i)) <span class="hljs-comment">//string单个字符转数字</span><br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>一些碎碎念</title>
-    <link href="/2025/05/06/dairy0506/"/>
-    <url>/2025/05/06/dairy0506/</url>
-    
-    <content type="html"><![CDATA[<h3 id="想太多，做太少"><a href="#想太多，做太少" class="headerlink" title="想太多，做太少"></a>想太多，做太少</h3><hr><blockquote><p>预期极简化+困难容易化&#x3D;行动力开挂</p></blockquote><blockquote><p>两分钟法则：任何低于2分钟的小任务立马做掉<br>三秒法则：3秒内让大脑来不及感受，你就能直接产生行动<br>五分钟法则：你想拖延做一件事的时候，不妨给自己5分钟时间，先尝试着去做，用5分钟的时间投入状态，过后你就会想一口气把事情做完了</p></blockquote><p>直接行动让自己来不及“后悔”和上面的235原则挺像的，提升行动力能降低90%的精神内耗。还有就是要降低期望值，缺乏行动力的本质原因主要有两个，给自己设立太高的预期和认为目标太难，正反馈来的少自然就没有动力继续往下做。</p><!-- <iframe src="https://www.bilibili.com/video/BV1xxdfYxECA/?spm_id_from=333.1391.0.0&vd_source=4dab92dd37c29fbf17e16d02bfad03e1&high_quality=1&danmaku=0&autoplay=1" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> --><hr><h3 id="正正的反馈"><a href="#正正的反馈" class="headerlink" title="正正的反馈"></a>正正的反馈</h3><p>做完的任务进行量化，进度条可视化，根据反馈设置目标。<br>积极的心里暗示，我好棒棒！</p><hr><h3 id="关于三分钟热度"><a href="#关于三分钟热度" class="headerlink" title="关于三分钟热度"></a>关于三分钟热度</h3><p>找到兴趣啊喂🙂</p><hr><h3 id="焦虑地放松"><a href="#焦虑地放松" class="headerlink" title="焦虑地放松"></a>焦虑地放松</h3><p>———自己就有事要干但是就完全不想干，然后去玩也是焦虑地玩着。<br>缺少对事情的“控制感”，任务困难就把它划分多个小任务，化阶段完成。<del>虽然有些东西就是没法完成的</del><br>不必每时每刻追求完美，焦虑+完美主义+拖延症，不要想着做100分的东西出来，先做个60分的东西，然后再把它改成80分就可以了。这部分我也挺有体会，当时在大四毕设时也是挺焦虑的，因为是一个工程式的项目从零开始构建真的费时又费力，后面先仿照别人的模板摸出来大概的框架运行后再在上面改，一步步完善它确实挺好的。<br>尝试时间管理：25分钟工作，5分钟休息，虽然这部分一直在尝试，不过往往都没有明确的schedule，不过现在尽量是以一小时工作，10-15分钟休息为主。</p><hr><h3 id="夜晚的水母不会睡眠"><a href="#夜晚的水母不会睡眠" class="headerlink" title="夜晚的水母不会睡眠"></a>夜晚的水母不会睡眠</h3><blockquote><p>4-7-8专注呼吸法<br>睡前可以喝牛奶（色氨酸）香蕉（镁）杏仁（镁+褪黑素）南瓜？<br>午休不要睡超过30min<br>冥想：关注当下的活动<br>潜意识背书（学习）：睡前学习醒来复习，睡觉时海马体帮你学？（有待考究）<br>不要把3C带上床，很难做到..</p></blockquote><hr><h3 id="对自己说的话"><a href="#对自己说的话" class="headerlink" title="对自己说的话"></a>对自己说的话</h3><p><em style="font-size: 15px;">爱具体的人，不要爱抽象的人，要爱生活，不要爱生活的意义。</em></p><p>虽然想写成日记一样的东西，但是修修改改又变成像“攻略”的东西，嘛反正是写给自己看的，典型的理工男思维。</p><p><em style="font-size: 15px;">念旧的人像个拾荒者。</em></p><p>念旧的人，常常夜里会回忆过去的细节，或者说是种种选择，想说如果当时怎么怎么做那结果会不会更好。请不要后悔自己的选择，把它想成必然的结果。容貌焦虑也是，把它想成上天给你定的刻子一样。</p><p>然而这些都是乐观的想法，人是复杂的。</p><p>我挺羡慕那些自己工作是自己兴趣的，我对未来确实挺迷茫的，已经能够想象未来互联网行业当牛马<del>黑奴</del>的样子了，但我不想要这样的生活。</p><p>但是你如果问我想成为什么，我也说不清楚，矫情得要死。只能说有初步的计划，先完成毕业条件然后再说吧。</p><p>未完待续</p><hr><p>一些要读的书<br><a href="https://www.xiaohongshu.com/explore/6308881b000000001b023b8f?xsec_token=ABQo9tFoM0pA7YtVY36qqctKcXNuwW5u228boCz142yrk=&xsec_source=pc_search&source=web_explore_feed">拒绝拖延❌提高行动力✅的24本好书📚</a></p><p><a href="https://www.xiaohongshu.com/explore/67ee5dbb000000001d02ea7b?xsec_token=ABifxdv7BR9imXIBOnVE0WA-0YcbEEumeUHiXpuKhUVwY=&xsec_source=pc_search&source=web_search_result_notes">送给失眠星人的深度书单</a></p>]]></content>
-    
-    
     
   </entry>
   

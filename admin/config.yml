@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: tristanzzt76/tristanzzt76.github.io
+  branch: source
+  base_url: https://oauth.tristanzzt76.workers.dev  # Step 4 部署后填入
+
+local_backend: true   # 本地开发时用
+
+media_folder: source/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: source/_posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 发布日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss" }
+      - { label: 更新日期, name: updated, widget: datetime, format: "YYYY-MM-DD HH:mm:ss", required: false }
+      - { label: 标签, name: tags, widget: list, required: false }
+      - { label: 分类, name: categories, widget: list, required: false }
+      - { label: 封面图, name: banner_img, widget: image, required: false }
+      - { label: 摘要, name: excerpt, widget: text, required: false }
+      - { label: 正文, name: body, widget: markdown }
