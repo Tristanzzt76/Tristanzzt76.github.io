@@ -6,6 +6,7 @@ backend:
 
 local_backend: true
 
+publish_mode: editorial_workflow
 
 # 顶部显示博客链接
 display_url: https://tristanzzt76.github.io
