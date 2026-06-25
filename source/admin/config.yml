@@ -6,8 +6,6 @@ backend:
 
 local_backend: true
 
-# 草稿模式：保存 → 草稿（不立即发布），发布 → 触发构建上线
-publish_mode: editorial_workflow
 
 # 顶部显示博客链接
 display_url: https://tristanzzt76.github.io
@@ -54,7 +52,7 @@ collections:
       - { label: 摘要, name: excerpt, widget: text, required: false, hint: "留空则自动截取正文" }
       - { label: 是否置顶, name: sticky, widget: number, required: false, hint: "数字越大越靠前，留空不置顶" }
       - { label: 评论, name: comments, widget: boolean, default: true, required: false }
-      - { label: 正文, name: body, widget: markdown }
+      - { label: 正文, name: body, widget: markdown, required: false }
 
   # 独立页面管理
   - name: pages
@@ -66,14 +64,14 @@ collections:
         file: source/about/index.md
         fields:
           - { label: 标题, name: title, widget: string, default: "关于" }
-          - { label: 正文, name: body, widget: markdown }
+          - { label: 正文, name: body, widget: markdown, required: false }
 
       - label: 友情链接
         name: links
         file: source/links/index.md
         fields:
           - { label: 标题, name: title, widget: string, default: "友链" }
-          - { label: 正文, name: body, widget: markdown }
+          - { label: 正文, name: body, widget: markdown, required: false }
 
   # 网站基本设置
   - name: settings
