@@ -1,9 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
+  <title>Tristan's Blog — 后台管理</title>
+  <style>
+    /* 全局美化 */
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --bg: #f8fafc;
+      --sidebar-bg: #1e293b;
+      --sidebar-text: #e2e8f0;
+      --radius: 8px;
+    }
+
+    /* 登录页 */
+    [class*="LoginPage"] {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    }
+
+    /* 侧边栏 */
+    [class*="Sidebar"],
+    [class*="sidebar"] {
+      background: var(--sidebar-bg) !important;
+    }
+
+    /* 主按钮 */
+    button[class*="primary"],
+    [class*="PublishButton"] {
+      background: var(--primary) !important;
+      border-radius: var(--radius) !important;
+      border: none !important;
+      transition: background 0.2s !important;
+    }
+    button[class*="primary"]:hover {
+      background: var(--primary-dark) !important;
+    }
+
+    /* 卡片列表 */
+    [class*="ListCard"],
+    [class*="EntryCard"] {
+      border-radius: var(--radius) !important;
+      border: 1px solid #e2e8f0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+      transition: box-shadow 0.2s, transform 0.2s !important;
+    }
+    [class*="ListCard"]:hover,
+    [class*="EntryCard"]:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* 编辑器区域 */
+    [class*="EditorContent"] {
+      background: #fff !important;
+    }
+
+    /* 顶部导航 */
+    [class*="AppHeader"],
+    [class*="Topbar"] {
+      background: #fff !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important;
+    }
+
+    /* 滚动条 */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Markdown 编辑器 */
+    .cm-editor { font-family: 'JetBrains Mono', 'Fira Code', monospace !important; }
+
+    /* 字段 label */
+    [class*="FieldLabel"] {
+      font-weight: 600 !important;
+      color: #374151 !important;
+    }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>

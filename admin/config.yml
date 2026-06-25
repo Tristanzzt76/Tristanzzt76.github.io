@@ -4,26 +4,87 @@ backend:
   branch: source
   base_url: https://tristanzzt76-oauth.a1347900375.workers.dev
 
-local_backend: true   # 本地开发时用
+local_backend: true
+
+# 草稿模式：保存 → 草稿（不立即发布），发布 → 触发构建上线
+publish_mode: editorial_workflow
+
+# 顶部显示博客链接
+display_url: https://tristanzzt76.github.io
+show_preview_links: true
 
 media_folder: source/images/uploads
 public_folder: /images/uploads
 
+# 自定义 logo
+logo_url: https://tristanzzt76.github.io/img/fluid.png
+
 collections:
+  # 文章管理
   - name: posts
-    label: 文章
+    label: 📝 文章
     label_singular: 文章
     folder: source/_posts
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: 有封面图
+        field: banner_img
+        pattern: .+
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 标题, name: title, widget: string }
-      - { label: 发布日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss" }
+      - { label: 标题, name: title, widget: string, hint: "文章标题" }
+      - { label: 发布日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss", default: "{{now}}" }
       - { label: 更新日期, name: updated, widget: datetime, format: "YYYY-MM-DD HH:mm:ss", required: false }
-      - { label: 标签, name: tags, widget: list, required: false }
-      - { label: 分类, name: categories, widget: list, required: false }
-      - { label: 封面图, name: banner_img, widget: image, required: false }
-      - { label: 摘要, name: excerpt, widget: text, required: false }
+      - label: 分类
+        name: categories
+        widget: select
+        multiple: true
+        required: false
+        options: [技术, 生活, 随笔, 读书, 旅行, 工作]
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        hint: "回车添加标签"
+      - { label: 封面图, name: banner_img, widget: image, required: false, hint: "建议尺寸 1200×600" }
+      - { label: 摘要, name: excerpt, widget: text, required: false, hint: "留空则自动截取正文" }
+      - { label: 是否置顶, name: sticky, widget: number, required: false, hint: "数字越大越靠前，留空不置顶" }
+      - { label: 评论, name: comments, widget: boolean, default: true, required: false }
       - { label: 正文, name: body, widget: markdown }
+
+  # 独立页面管理
+  - name: pages
+    label: 📄 页面
+    label_singular: 页面
+    files:
+      - label: 关于我
+        name: about
+        file: source/about/index.md
+        fields:
+          - { label: 标题, name: title, widget: string, default: "关于" }
+          - { label: 正文, name: body, widget: markdown }
+
+      - label: 友情链接
+        name: links
+        file: source/links/index.md
+        fields:
+          - { label: 标题, name: title, widget: string, default: "友链" }
+          - { label: 正文, name: body, widget: markdown }
+
+  # 网站基本设置
+  - name: settings
+    label: ⚙️ 网站设置
+    files:
+      - label: 基本信息
+        name: site
+        file: source/_data/site.yml
+        fields:
+          - { label: 网站标题, name: title, widget: string }
+          - { label: 作者, name: author, widget: string }
+          - { label: 个人简介, name: bio, widget: text }
+          - { label: 头像, name: avatar, widget: image, required: false }
+          - { label: GitHub, name: github, widget: string, required: false }
