@@ -1,0 +1,86 @@
+# Hexo Configuration
+
+# Site
+title: Tristan's Blog
+subtitle: ''
+description: '个人博客'
+keywords:
+author: Tristan
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# URL
+url: https://tristanzzt76.github.io
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - admin/**
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+# Home page setting
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+
+# Metadata elements
+meta_generator: true
+
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+theme: fluid
+
+# Search
+search:
+  path: local-search.xml
+  field: post
+  content: true
+
+# Deploy
+deploy:
+  type: git
+  repo: https://github.com/tristanzzt76/tristanzzt76.github.io.git
+  branch: master
