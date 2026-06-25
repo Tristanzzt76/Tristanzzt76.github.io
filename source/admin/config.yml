@@ -2,7 +2,7 @@ backend:
   name: github
   repo: tristanzzt76/tristanzzt76.github.io
   branch: source
-  base_url: https://oauth.tristanzzt76.workers.dev  # Step 4 部署后填入
+  base_url: https://tristanzzt76-oauth.a1347900375.workers.dev
 
 local_backend: true   # 本地开发时用
 

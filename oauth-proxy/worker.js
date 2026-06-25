@@ -1,24 +1,24 @@
 /**
  * Cloudflare Worker — Decap CMS GitHub OAuth Proxy
- * 
- * 环境变量（在 Cloudflare Dashboard 配置）:
- *   GITHUB_CLIENT_ID     — GitHub OAuth App 的 Client ID
- *   GITHUB_CLIENT_SECRET — GitHub OAuth App 的 Client Secret
- *   ORIGIN               — 你的博客地址，如 https://tristanzzt76.github.io
+ *
+ * Secrets（wrangler secret put 设置）:
+ *   GITHUB_CLIENT_ID
+ *   GITHUB_CLIENT_SECRET
  */
-
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // CORS preflight
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: CORS_HEADERS });
+      return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
+      });
     }
 
     // /auth → 重定向到 GitHub 授权页
@@ -34,7 +34,7 @@ export default {
       );
     }
 
-    // /callback → 用 code 换 token，返回给 CMS
+    // /callback → 用 code 换 token，postMessage 给 Decap CMS
     if (url.pathname === '/callback') {
       const code = url.searchParams.get('code');
       if (!code) {
@@ -54,27 +54,32 @@ export default {
         }),
       });
 
-      const { access_token, error } = await tokenRes.json();
-      if (error || !access_token) {
-        return new Response(`OAuth error: ${error}`, { status: 400 });
+      const data = await tokenRes.json();
+      if (data.error || !data.access_token) {
+        return new Response(`OAuth error: ${data.error}`, { status: 400 });
       }
 
-      // Decap CMS 期望收到这个格式的 postMessage
-      const script = `
-        <script>
-          const receiveMessage = (message) => {
-            window.opener.postMessage(
-              'authorization:github:success:${JSON.stringify({ token: '${access_token}', provider: 'github' })}',
-              message.origin
-            );
-            window.removeEventListener('message', receiveMessage, false);
-          };
-          window.addEventListener('message', receiveMessage, false);
-          window.opener.postMessage('authorizing:github', '*');
-        </script>
-      `.replace('${access_token}', access_token);
+      const token = data.access_token;
+      const content = JSON.stringify({ token, provider: 'github' });
+      const message = `authorization:github:success:${content}`;
 
-      return new Response(script, {
+      const html = `<!DOCTYPE html>
+<html>
+<body>
+<script>
+  (function() {
+    function receiveMessage(e) {
+      window.opener.postMessage(${JSON.stringify(message)}, e.origin);
+      window.removeEventListener('message', receiveMessage, false);
+    }
+    window.addEventListener('message', receiveMessage, false);
+    window.opener.postMessage('authorizing:github', '*');
+  })();
+<\/script>
+</body>
+</html>`;
+
+      return new Response(html, {
         headers: { 'Content-Type': 'text/html' },
       });
     }
