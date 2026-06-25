@@ -83,5 +83,35 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <style>
+    #home-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: #1e293b;
+      color: #e2e8f0 !important;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transition: all 0.2s ease;
+      opacity: 0.85;
+    }
+    #home-btn:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      color: #fff !important;
+    }
+  </style>
+  <a id="home-btn" href="https://tristanzzt76.github.io/" target="_blank" title="返回主页">
+    🏠 主页
+  </a>
 </body>
 </html>
