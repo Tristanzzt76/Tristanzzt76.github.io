@@ -1,0 +1,87 @@
+/* ===========================
+   Tristan's Blog 自定义样式
+   =========================== */
+
+/* 文章卡片优化 */
+#board .post-card-main {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+#board .post-card-main:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* 文章封面图圆角 */
+.post-card-main .post-card-img {
+  border-radius: 12px 12px 0 0;
+}
+
+/* 文章封面图 zoom 效果 */
+.post-card-main .post-card-img img {
+  transition: transform 0.5s ease;
+}
+.post-card-main:hover .post-card-img img {
+  transform: scale(1.05);
+}
+
+/* 首页 Banner 副标题字体 */
+#board .banner-subtitle,
+.banner-subtitle {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  opacity: 0.92;
+}
+
+/* Banner 大标题增强 */
+.banner-title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+/* 导航栏链接 hover */
+#navbar .navbar-nav .nav-link:hover {
+  opacity: 0.8;
+}
+
+/* 标签云美化 */
+.tag-cloud-tags a {
+  border-radius: 20px !important;
+  transition: all 0.2s ease !important;
+}
+.tag-cloud-tags a:hover {
+  transform: scale(1.08) !important;
+}
+
+/* 底部 footer */
+#footer {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* 滚动条细化 */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c6c9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a3a8;
+}
+
+/* 代码块圆角 */
+pre {
+  border-radius: 8px !important;
+}
+
+/* 文章页标题下划线装饰 */
+.post-content h2 {
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
