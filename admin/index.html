@@ -4,29 +4,60 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhizitan's Blog — 后台管理</title>
-  <style>
-    /* 修复字段标签黑色 header bar */
-    [class*="WidgetHeader"],
-    [class*="widget-header"],
-    [class*="FieldHeader"],
-    [class*="LabelWrapper"],
-    [class*="label-wrapper"],
-    [class*="ObjectWidgetTopBar"],
-    [class*="TopBar"] {
-      background: transparent !important;
-      background-color: transparent !important;
-    }
-
-    /* 确保字段 label 文字颜色正常 */
-    [class*="WidgetHeader"] span,
-    [class*="FieldLabel"],
-    [class*="label"] {
-      color: #374151 !important;
-    }
-  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // 用 MutationObserver 监听 DOM 变化，持续修复黑色 header bar
+    // Decap CMS 3.x 用 styled-components，样式动态注入，需要监听后覆盖
+    (function () {
+      var style = document.createElement('style');
+      style.id = 'cms-fix';
+      // 字段 label header 黑色背景修复
+      // 通过背景色识别：任何背景接近黑色 (#1D2330 / #26324B 等) 的非 button 元素
+      style.textContent = [
+        /* 字段 widget 顶栏 */
+        '[class*="WidgetTopBar"], [class*="widget-top-bar"],',
+        '[class*="ObjectWidgetTopBar"], [class*="StyledObjectWidget"],',
+        '[class*="FieldHeader"], [class*="field-header"],',
+        '[class*="LabelWrapper"] { background: transparent !important; background-color: transparent !important; }',
+
+        /* 字段 label 文字 */
+        '[class*="FieldLabel"], [class*="field-label"],',
+        'label[class*="sc-"] { color: #374151 !important; font-weight: 600 !important; }',
+
+        /* 下拉菜单背景白色 */
+        'select { background: #fff !important; }',
+
+        /* 卡片列表悬停 */
+        '[class*="EntryCard"]:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; }',
+      ].join('\n');
+      document.head.appendChild(style);
+
+      // MutationObserver: 每次 DOM 更新后扫描并强制覆盖黑色背景
+      var observer = new MutationObserver(function () {
+        var els = document.querySelectorAll('div[class], span[class]');
+        els.forEach(function (el) {
+          var bg = getComputedStyle(el).backgroundColor;
+          // 匹配接近黑色的背景 (r<60 && g<60 && b<60) 且非按钮/导航
+          var tag = el.tagName.toLowerCase();
+          if (tag === 'button' || tag === 'nav' || tag === 'header') return;
+          var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+          if (m && +m[1] < 60 && +m[2] < 60 && +m[3] < 60) {
+            // 只修复编辑器内容区的黑色（跳过顶栏 toolbar）
+            var inToolbar = el.closest('[class*="Toolbar"], [class*="TopBar"], [class*="Header"]');
+            if (!inToolbar) {
+              el.style.setProperty('background-color', 'transparent', 'important');
+              el.style.setProperty('background', 'transparent', 'important');
+            }
+          }
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true, attributes: false });
+    })();
+  </script>
 
   <style>
     #home-btn {
