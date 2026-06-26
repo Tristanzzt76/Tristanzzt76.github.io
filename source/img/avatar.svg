@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <clipPath id="circle">
+      <circle cx="100" cy="100" r="100"/>
+    </clipPath>
+  </defs>
+  <!-- 背景渐变圆 -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <!-- 身体轮廓 -->
+  <ellipse cx="100" cy="155" rx="55" ry="40" fill="rgba(255,255,255,0.2)" clip-path="url(#circle)"/>
+  <!-- 头部 -->
+  <circle cx="100" cy="82" r="36" fill="rgba(255,255,255,0.9)"/>
+  <!-- 眼睛 -->
+  <circle cx="88" cy="78" r="5" fill="#3b82f6"/>
+  <circle cx="112" cy="78" r="5" fill="#3b82f6"/>
+  <!-- 微笑 -->
+  <path d="M 86 92 Q 100 104 114 92" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- 字母 Z（底部装饰） -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="18" font-weight="bold" fill="rgba(255,255,255,0.8)">Zhizitan</text>
+</svg>
