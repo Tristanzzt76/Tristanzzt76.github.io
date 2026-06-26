@@ -4,6 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhizitan's Blog — 后台管理</title>
+  <style>
+    /* 修复字段标签黑色 header bar */
+    [class*="WidgetHeader"],
+    [class*="widget-header"],
+    [class*="FieldHeader"],
+    [class*="LabelWrapper"],
+    [class*="label-wrapper"],
+    [class*="ObjectWidgetTopBar"],
+    [class*="TopBar"] {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+
+    /* 确保字段 label 文字颜色正常 */
+    [class*="WidgetHeader"] span,
+    [class*="FieldLabel"],
+    [class*="label"] {
+      color: #374151 !important;
+    }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
