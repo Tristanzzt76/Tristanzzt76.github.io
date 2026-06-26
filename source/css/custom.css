@@ -85,3 +85,29 @@ pre {
   border-left: 4px solid #3b82f6;
   padding-left: 12px;
 }
+
+/* ===== 文章底部「复制链接」分享按钮 ===== */
+.share-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 8px 18px;
+  background: #f1f5f9;
+  color: #374151;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.share-copy-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+.share-copy-btn.copied {
+  background: #dcfce7;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}

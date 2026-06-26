@@ -73,17 +73,3 @@ collections:
         fields:
           - { label: 标题, name: title, widget: string, default: "友链" }
           - { label: 正文, name: body, widget: markdown, required: false }
-
-  # 网站基本设置
-  - name: settings
-    label: ⚙️ 网站设置
-    files:
-      - label: 基本信息
-        name: site
-        file: source/_data/site.yml
-        fields:
-          - { label: 网站标题, name: title, widget: string }
-          - { label: 作者, name: author, widget: string }
-          - { label: 个人简介, name: bio, widget: text }
-          - { label: 头像, name: avatar, widget: image, required: false }
-          - { label: GitHub, name: github, widget: string, required: false }
