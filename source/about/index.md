@@ -3,7 +3,7 @@ title: 关于我
 layout: about
 ---
 
-## Hi，我是 Tristan 👋
+## Hi，我是 Zhizitan 👋
 
 计算机科学专业学生，热爱编程与技术探索。
 
