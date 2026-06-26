@@ -4,134 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhizitan's Blog — 后台管理</title>
-  <style>
-    /* ===== 匹配主博客 Fluid 主题配色 ===== */
-    :root {
-      --nav-bg: #0d1117;
-      --nav-text: #e2e8f0;
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --radius: 8px;
-      --shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-
-    /* 顶部导航栏 — 和主页完全一致的深色 */
-    [class*="AppHeader"],
-    [class*="Topbar"],
-    header[class*="top"] {
-      background: var(--nav-bg) !important;
-      border-bottom: none !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
-      color: var(--nav-text) !important;
-    }
-    [class*="AppHeader"] *,
-    [class*="Topbar"] * {
-      color: var(--nav-text) !important;
-    }
-    [class*="AppHeader"] a,
-    [class*="Topbar"] a {
-      color: var(--nav-text) !important;
-      opacity: 0.85;
-      transition: opacity 0.2s;
-    }
-    [class*="AppHeader"] a:hover,
-    [class*="Topbar"] a:hover { opacity: 1; }
-
-    /* 编辑器顶栏 (Writing in...) */
-    [class*="EditorToolbar"],
-    [class*="ToolbarContainer"],
-    [class*="toolbar"] {
-      background: var(--nav-bg) !important;
-      color: var(--nav-text) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    }
-    [class*="EditorToolbar"] *,
-    [class*="ToolbarContainer"] * { color: var(--nav-text) !important; }
-
-    /* Save / Publish 按钮 */
-    button[class*="primary"],
-    [class*="PublishButton"],
-    [class*="publish"] > button {
-      background: var(--primary) !important;
-      border-radius: 6px !important;
-      border: none !important;
-      color: #fff !important;
-      font-weight: 600 !important;
-      transition: background 0.2s !important;
-    }
-    button[class*="primary"]:hover,
-    [class*="PublishButton"]:hover { background: var(--primary-dark) !important; }
-
-    /* 侧边栏 */
-    [class*="Sidebar"], [class*="sidebar"],
-    nav[class*="side"], aside {
-      background: var(--nav-bg) !important;
-      border-right: 1px solid rgba(255,255,255,0.06) !important;
-    }
-    [class*="Sidebar"] *, [class*="sidebar"] * { color: var(--nav-text) !important; }
-    [class*="Sidebar"] a:hover { background: rgba(255,255,255,0.08) !important; border-radius: 6px; }
-
-    /* 主内容区 */
-    [class*="Main"], main { background: var(--bg) !important; }
-
-    /* 卡片 */
-    [class*="ListCard"], [class*="EntryCard"], [class*="Card"] {
-      background: var(--card-bg) !important;
-      border-radius: var(--radius) !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow) !important;
-      transition: box-shadow 0.2s, transform 0.2s !important;
-    }
-    [class*="ListCard"]:hover, [class*="EntryCard"]:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
-      transform: translateY(-2px) !important;
-    }
-
-    /* 登录页 */
-    [class*="LoginPage"], [class*="Auth"] {
-      background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 100%) !important;
-    }
-
-    /* 字段标签 */
-    [class*="FieldLabel"], label { font-weight: 600 !important; color: #374151 !important; }
-
-    /* Markdown 编辑器 */
-    .cm-editor, [class*="CodeMirror"] {
-      font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', monospace !important;
-      font-size: 14px !important;
-    }
-
-    /* 滚动条 */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-
-    /* 代码块 */
-    pre, code { border-radius: 6px !important; }
-  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- 左下角「🏠 主页」按钮 -->
   <style>
     #home-btn {
       position: fixed; bottom: 24px; left: 24px; z-index: 99999;
       display: flex; align-items: center; gap: 6px;
       padding: 8px 14px;
-      background: #0d1117; color: #e2e8f0 !important;
+      background: #1e293b; color: #e2e8f0 !important;
       border-radius: 20px; font-size: 13px; font-weight: 500;
       text-decoration: none !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      transition: all 0.2s ease; opacity: 0.9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: all 0.2s ease;
     }
-    #home-btn:hover { opacity: 1; transform: translateY(-2px); color: #fff !important; }
+    #home-btn:hover { opacity: 0.85; transform: translateY(-2px); color: #fff !important; }
   </style>
-  <a id="home-btn" href="https://tristanzzt76.github.io/" target="_blank" title="返回主页">
-    🏠 主页
-  </a>
+  <a id="home-btn" href="https://tristanzzt76.github.io/" target="_blank">🏠 主页</a>
 </body>
 </html>
