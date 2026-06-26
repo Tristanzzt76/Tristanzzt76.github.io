@@ -1,14 +1,12 @@
 /**
  * 首页文章卡片：快速编辑按钮
- * hover 时右上角出现 ✏️，点击跳转到 admin 编辑该文章
  */
 (function () {
   function urlToFilename(href) {
-    // 先解码 URL（处理中文标题如 %E6%B5%8B%E8%AF%95 → 测试）
     try { href = decodeURIComponent(href); } catch (e) {}
-    // /2026/06/26/测试/ → 2026-06-26-测试
-    var m = href.match(/\/(\d{4})\/(\d{2})\/(\d{2})\/([^/?#]+)\/?$/);
-    return m ? m[1] + '-' + m[2] + '-' + m[3] + '-' + m[4] : null;
+    // 从 /2026/06/26/SLUG/ 里直接取 SLUG，不再拼日期
+    var m = href.match(/\/\d{4}\/\d{2}\/\d{2}\/([^/?#]+)\/?$/);
+    return m ? m[1] : null;
   }
 
   function addEditButtons() {
@@ -16,7 +14,6 @@
     cards.forEach(function (card) {
       if (card.querySelector('.card-edit-btn')) return;
 
-      // 找文章链接（含年份路径）
       var link = card.querySelector('a[href*="/20"]');
       if (!link) return;
 
