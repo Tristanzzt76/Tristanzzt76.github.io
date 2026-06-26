@@ -22,7 +22,7 @@
 
       var btn = document.createElement('a');
       btn.className = 'card-edit-btn';
-      btn.href = '/admin/#/collections/posts/edit/' + encodeURIComponent(filename);
+      btn.href = '/admin/#/collections/posts/entries/' + encodeURIComponent(filename);
       btn.title = '编辑文章';
       btn.innerHTML = '✏️';
       btn.style.cssText = [
