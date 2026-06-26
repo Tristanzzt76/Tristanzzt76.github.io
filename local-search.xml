@@ -29,11 +29,11 @@
   
   
   <entry>
-    <title>Hello World</title>
+    <title>你好，世界 👋</title>
     <link href="/2026/06/25/hello-world/"/>
     <url>/2026/06/25/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to Tristan’s Blog! 🎉</p><p>这是第一篇文章，博客已经支持在线编辑和发布。</p><span id="more"></span><p>访问 <code>/admin</code> 即可进入后台编辑界面。</p>]]></content>
+    <content type="html"><![CDATA[<p>这是博客的第一篇文章。</p><p>用 Hexo + Fluid 搭建，托管在 GitHub Pages，支持在线写作和发布。</p><!-- more --><h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><ul><li>记录学习过程，方便以后回顾</li><li>整理思路，写下来比藏在脑子里靠谱</li><li>分享一些有意思的东西</li></ul><h2 id="这里会写什么"><a href="#这里会写什么" class="headerlink" title="这里会写什么"></a>这里会写什么</h2><p>技术笔记、生活感悟、读书记录，想到什么写什么。</p><hr><p><em>持续更新中。</em></p>]]></content>
     
     
     <categories>
